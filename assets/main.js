@@ -9,12 +9,21 @@
   const downloadBtn = document.getElementById('downloadBtn');
   const portableBtn = document.getElementById('portableBtn');
 
+  const owner = 'Harne123';
+  const repo = 'velora1';
+  const ver = cfg.version || '1.2.2';
+  const fallbackSetup = `https://github.com/${owner}/${repo}/releases/latest/download/Velora-${ver}-x64.exe`;
+  const fallbackPortable = `https://github.com/${owner}/${repo}/releases/latest/download/Velora-${ver}-Portable.exe`;
+
   if (downloadBtn) {
-    downloadBtn.setAttribute('href', cfg.downloadUrl || './download/Velora-Setup.exe');
+    downloadBtn.setAttribute('href', cfg.downloadUrl || fallbackSetup);
+    downloadBtn.setAttribute('download', '');
   }
   if (portableBtn) {
-    portableBtn.setAttribute('href', cfg.portableUrl || './download/Velora-Portable.exe');
+    portableBtn.setAttribute('href', cfg.portableUrl || fallbackPortable);
   }
+  // cache-bust hint in console for support
+  console.info('[Velora site]', ver, cfg.downloadUrl || fallbackSetup);
 
   const io = new IntersectionObserver(
     (entries) => {
