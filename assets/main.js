@@ -4,18 +4,16 @@
 
   const cfg = window.VELORA_SITE || {};
   const versionLabel = document.getElementById('versionLabel');
-  if (versionLabel && cfg.version) {
-    versionLabel.textContent = `v${cfg.version}`;
-  }
+  if (versionLabel && cfg.version) versionLabel.textContent = `v${cfg.version}`;
 
   const downloadBtn = document.getElementById('downloadBtn');
-  if (downloadBtn && cfg.downloadUrl) {
-    downloadBtn.setAttribute('href', cfg.downloadUrl);
-  }
+  const portableBtn = document.getElementById('portableBtn');
 
-  const portable = document.querySelector('a.btn-ghost');
-  if (portable && cfg.portableUrl) {
-    portable.setAttribute('href', cfg.portableUrl);
+  if (downloadBtn) {
+    downloadBtn.setAttribute('href', cfg.downloadUrl || './download/Velora-Setup.exe');
+  }
+  if (portableBtn) {
+    portableBtn.setAttribute('href', cfg.portableUrl || './download/Velora-Portable.exe');
   }
 
   const io = new IntersectionObserver(
