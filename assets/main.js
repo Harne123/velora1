@@ -11,7 +11,7 @@
 
   const owner = 'Harne123';
   const repo = 'velora1';
-  const ver = cfg.version || '1.5.0';
+  const ver = cfg.version || '1.5.1';
   const fallbackSetup = `https://github.com/${owner}/${repo}/releases/latest/download/Velora-${ver}-x64.exe`;
   const fallbackPortable = `https://github.com/${owner}/${repo}/releases/latest/download/Velora-${ver}-Portable.exe`;
 
